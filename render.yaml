@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: skin-health-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.10
+      - key: AI_PROVIDER
+        value: openai
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_BASE_URL
+        value: ""
+      - key: OPENAI_TEXT_MODEL
+        value: gpt-4o-mini
+      - key: OPENAI_VISION_MODEL
+        value: gpt-4o-mini
+      - key: AI_TIMEOUT_SECONDS
+        value: 90
+      - key: DATABASE_URL
+        value: sqlite:///./skin_health.db
+      - key: CORS_ORIGINS
+        value: https://your-frontend.vercel.app
+      - key: IMAGE_TTL_HOURS
+        value: 24
+      - key: MAX_IMAGE_MB
+        value: 8

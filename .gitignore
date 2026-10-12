@@ -1,0 +1,10 @@
+.DS_Store
+*.DS_Store
+
+# Local test photos used during development - not needed by the app and some are
+# copyrighted stock images (e.g. 4.jpeg has a visible Shutterstock watermark) - never
+# commit these to a public repo.
+1.jpg
+2.jpeg
+3.jpg
+4.jpeg
